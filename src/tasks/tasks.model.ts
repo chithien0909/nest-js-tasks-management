@@ -1,6 +1,4 @@
-import { TasksService } from './tasks.service';
-import { TasksModule } from './tasks.module';
-export interface Task{
+export interface Task {
   id: string;
   title: string;
   description: string;
