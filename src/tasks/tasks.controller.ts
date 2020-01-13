@@ -12,8 +12,8 @@ import { AuthGuard } from '@nestjs/passport';
 import { GetUser } from '../auth/get-user.decorator';
 import { User } from '../auth/user.entity';
 
-@Controller('tasks')
 @UseGuards(AuthGuard())
+@Controller('tasks')
 export class TasksController {
   private logger = new Logger('TasksController');
   constructor(private tasksService: TasksService) {
@@ -22,7 +22,6 @@ export class TasksController {
   getTasks(
     @Query(ValidationPipe) filterDto: GetTaskFilterDto,
     @GetUser() user: User) {
-
     this.logger.verbose(`User ${user.username} retrieving all task.
     Filters: ${JSON.stringify(filterDto)}`);
     return this.tasksService.getTasks(filterDto, user);

@@ -1,10 +1,14 @@
+import { Field, InputType } from 'type-graphql';
 import { IsString, Matches, MaxLength, MinLength } from 'class-validator';
 
-export class AuthCredentialsDto {
+@InputType()
+export class UserInput {
+  @Field()
   @IsString()
   @MinLength(4)
   @MaxLength(20)
   username: string;
+  @Field()
   @IsString()
   @MinLength(8)
   @MaxLength(20)
